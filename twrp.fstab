@@ -1,0 +1,27 @@
+# 系统分区（只读，动态分区）
+/system          erofs   /dev/block/by-name/system        flags=slotselect;display="System";backup=1;wipeingui
+/system_ext      erofs   /dev/block/by-name/system_ext    flags=slotselect;display="System_ext";backup=1;wipeingui
+/product         erofs   /dev/block/by-name/product       flags=slotselect;display="Product";backup=1;wipeingui
+/vendor          erofs   /dev/block/by-name/vendor        flags=slotselect;display="Vendor";backup=1;wipeingui
+/vendor_dlkm     erofs   /dev/block/by-name/vendor_dlkm   flags=slotselect;display="Vendor_dlkm";backup=1
+/system_dlkm     erofs   /dev/block/by-name/system_dlkm   flags=slotselect;display="System_dlkm";backup=1
+/odm             erofs   /dev/block/by-name/odm           flags=slotselect;display="ODM";backup=1
+
+# 数据分区（加密）
+/data            f2fs    /dev/block/by-name/userdata      flags=encryptable;display="Data";backup=1;wipeingui;fsflags="inline_xattr"
+
+# 启动与恢复分区
+/boot            emmc    /dev/block/by-name/boot          flags=slotselect;backup=1;flashimg=1
+/init_boot       emmc    /dev/block/by-name/init_boot     flags=slotselect;backup=1;flashimg=1
+/recovery        emmc    /dev/block/by-name/recovery      flags=slotselect;backup=1;flashimg=1
+/vendor_boot     emmc    /dev/block/by-name/vendor_boot   flags=slotselect;backup=1;flashimg=1
+/dtbo            emmc    /dev/block/by-name/dtbo          flags=slotselect;backup=1;flashimg=1
+
+# 其他分区
+/metadata        ext4    /dev/block/by-name/metadata      flags=display="Metadata";backup=1
+/misc            emmc    /dev/block/by-name/misc          flags=display="Misc"
+/persist         ext4    /dev/block/by-name/persist       flags=display="Persist";backup=1
+
+# 外部存储
+/sdcard          vfat    /dev/block/mmcblk1p1   /dev/block/mmcblk1   flags=removable;storage;display="Micro SD"
+/usb-otg         vfat    /dev/block/sda1        /dev/block/sda       flags=removable;storage;display="USB-OTG"
