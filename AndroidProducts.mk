@@ -1,1 +1,1 @@
-PRODUCT_MAKEFILES := $(LOCAL_DIR)/omni_ruyi.mk
+PRODUCT_MAKEFILES := $(LOCAL_DIR)/twrp_ruyi.mk
