@@ -7,7 +7,7 @@
 /system_dlkm     erofs   /dev/block/by-name/system_dlkm   flags=slotselect;display="System_dlkm";backup=1
 /odm             erofs   /dev/block/by-name/odm           flags=slotselect;display="ODM";backup=1
 
-# 数据分区（加密）
+# 数据分区
 /data            f2fs    /dev/block/by-name/userdata      flags=encryptable;display="Data";backup=1;wipeingui;fsflags="inline_xattr"
 
 # 启动与恢复分区
